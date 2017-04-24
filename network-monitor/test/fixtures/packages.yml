@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  from_ip: MyString
+  to_ip: MyString
+  time: 2017-04-24 21:17:54
+  protocol: MyString
+  is_tcp: false
+
+two:
+  from_ip: MyString
+  to_ip: MyString
+  time: 2017-04-24 21:17:54
+  protocol: MyString
+  is_tcp: false
