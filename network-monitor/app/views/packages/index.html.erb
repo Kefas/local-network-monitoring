@@ -1,2 +1,24 @@
 <h1>Packages#index</h1>
-<p>Find me in app/views/packages/index.html.erb</p>
+
+<table class="table table-bordered table-striped">
+  <thead>
+  <tr>
+    <th>From ip</th>
+    <th>To ip</th>
+    <th>Time</th>
+    <th>Protol</th>
+    <th>Is TCP?</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @packages.each do |package| %>
+      <tr>
+        <td><%= package.from_ip %></td>
+        <td><%= package.to_ip %></td>
+        <td><%= package.time %></td>
+        <td><%= package.protocol %></td>
+        <td><%= package.is_tcp %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
