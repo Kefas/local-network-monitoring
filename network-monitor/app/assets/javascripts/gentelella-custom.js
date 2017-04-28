@@ -359,7 +359,7 @@ if (typeof NProgress != 'undefined') {
 		  [gd(2012, 1, 2), 23],
 		  [gd(2012, 1, 3), 66],
 		  [gd(2012, 1, 4), 9],
-		  [gd(2012, 1, 5), 119],
+		  [gd(2012, 1, 5), 150],
 		  [gd(2012, 1, 6), 6],
 		  [gd(2012, 1, 7), 9]
 		];
@@ -548,7 +548,7 @@ if (typeof NProgress != 'undefined') {
         if ($("#chart_plot_01").length){
 			console.log('Plot1');
 
-			$.plot( $("#chart_plot_01"), [ arr_data1, arr_data2 ],  chart_plot_01_settings );
+			// $.plot( $("#chart_plot_01"), [ arr_data1, arr_data2 ],  chart_plot_01_settings );
 		}
 
 
