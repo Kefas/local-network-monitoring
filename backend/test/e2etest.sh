@@ -10,7 +10,7 @@ SERVICE_NAME='redhat'
 NUMBER_OF_REC_PACKAGES_BEFORE=`mongo --eval "${NAME_OF_DB_COLLECTION}.count({"to_ip":/${SERVICE_NAME}/})"|tail -n 1`
 
 curl http://www.${SERVICE_NAME}.org
-sleep 30s #time for feeding data in db
+sleep 30s #time for feeding data into db
 
 NUMBER_OF_REC_PACKAGES_AFTER=`mongo --eval "${NAME_OF_DB_COLLECTION}.count({"to_ip":/${SERVICE_NAME}/})"|tail -n 1`
 
