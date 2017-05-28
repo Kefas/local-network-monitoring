@@ -11,5 +11,5 @@ if [ $2 == "TCP" ]; then
             IS_TCP="false";
       fi;
 
-echo "{package: {\"from_ip\": \"$3\", \"to_ip\" : \"$4\", \"time\": \"$(date +%d.%m.%Y) $1\", \"is_tcp\" : \"$IS_TCP\"}}"
+echo "{\"from_ip\": \"$3\", \"to_ip\" : \"$4\", \"time\": \"$(date +%d.%m.%Y) $1\", \"is_tcp\" : \"$IS_TCP\"}"
 exit 0
