@@ -9,8 +9,8 @@
 
 (1..100).each do |i|
   Package.create(
-      from_ip: Faker::Internet.ip_v4_address,
-      to_ip: Faker::Internet.ip_v4_address,
+      from: Faker::Internet.user_name,
+      to: Faker::Internet.domain_name,
       time: Faker::Time.between(Time.now - 2.week, Time.now).to_s,
       protocol: ['ssh', 'http', 'ssh'].sample,
       is_tcp: Faker::Boolean)
@@ -18,14 +18,23 @@ end
 
 
 # youtube addresses from one address in 4 minutes interval
-fixed_ip_adress = Faker::Internet.ip_v4_address
+fixed_ip_adress = Faker::Internet.user_name
 start_time = Time.now - 1.week
 
-(1..10).each do |i|
+(1..100).each do |i|
   Package.create(
-      from_ip: fixed_ip_adress,
-      to_ip: ['208.65.153.238', '208.65.153.251', '208.65.153.253', '208.117.236.69'].sample,
+      from: fixed_ip_adress,
+      to: 'www.youtube.com',
       time: start_time + 4.minute * i,
+      protocol: 'http',
+      is_tcp: true)
+end
+
+(1..100).each do |i|
+  Package.create(
+      from: fixed_ip_adress,
+      to: 'www.youtube.com',
+      time: start_time + 2.day + 4.minute * i,
       protocol: 'http',
       is_tcp: true)
 end

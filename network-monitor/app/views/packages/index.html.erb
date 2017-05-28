@@ -2,8 +2,8 @@
   <table class="table table-bordered table-striped">
     <thead>
     <tr>
-      <th>From ip</th>
-      <th>To ip</th>
+      <th>Computer name</th>
+      <th>Domain name</th>
       <th>Time</th>
       <th>Protol</th>
       <th>Is TCP?</th>
@@ -12,8 +12,8 @@
     <tbody>
     <% @packages.each do |package| %>
         <tr>
-          <td><%= package.from_ip %></td>
-          <td><%= package.to_ip %></td>
+          <td><%= package.from %></td>
+          <td><%= package.to %></td>
           <td><%= package.time %></td>
           <td><%= package.protocol %></td>
           <td><%= package.is_tcp %></td>

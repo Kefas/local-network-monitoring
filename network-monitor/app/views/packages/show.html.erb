@@ -6,7 +6,7 @@
         <div class="row x_title">
           <div class="col-md-6">
             <h3>Network Activities
-              <span id="from_ip"><small ><%= @packages.first.from_ip %></small></span>
+              <span id="computer_name"><small ><%= @packages.first.from %></small></span>
             </h3>
           </div>
           <!--<div class="col-md-6">-->
@@ -29,8 +29,8 @@
   <table class="table table-bordered table-striped">
     <thead>
     <tr>
-      <th>From ip</th>
-      <th>To ip</th>
+      <th>From computer</th>
+      <th>Domain name</th>
       <th>Time</th>
       <th>Protol</th>
       <th>Is TCP?</th>
@@ -39,8 +39,8 @@
     <tbody>
     <% @packages.each do |package| %>
         <tr>
-          <td><%= package.from_ip %></td>
-          <td><%= package.to_ip %></td>
+          <td><%= package.from %></td>
+          <td><%= package.to %></td>
           <td><%= package.time %></td>
           <td><%= package.protocol %></td>
           <td><%= package.is_tcp %></td>
