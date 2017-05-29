@@ -33,9 +33,19 @@ end
 (1..100).each do |i|
   Package.create(
       from: fixed_ip_adress,
-      to: 'www.youtube.com',
-      time: start_time + 2.day + 4.minute * i,
+      to: 'www.google.com',
+      time: start_time + 4.day + 4.minute * i,
       protocol: 'http',
       is_tcp: true)
 end
+
+(1..50).each do |i|
+  Package.create(
+      from: fixed_ip_adress,
+      to: 'www.facebook.com',
+      time: start_time - 2.day + 4.minute * i,
+      protocol: 'http',
+      is_tcp: true)
+end
+
 

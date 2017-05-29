@@ -21,27 +21,27 @@ class PackagesController < ApplicationController
     if params[:package].nil?
       render 'name_activity'
     else
-      @packages = Package.where(from: from)
-      uniq_domains = @packages.pluck(:to).uniq
-      @data = []
-      uniq_domains.each do |domain|
-        count = @packages.where(to: domain).size
-        @data << OpenStruct.new(from: from, domain: domain, count: count, color: Faker::Color.color_name)
-      end
+      compute_doughnut
+      @data = @data.sort_by(&:count).take(5)
       render 'doughnut'
     end
   end
 
   def doughnut
+    compute_doughnut
+    respond_to do |format|
+      format.json { render :json => @data.sort_by(&:count).take(5) }
+    end
+  end
+
+  def compute_doughnut
     @packages = Package.where(from: from)
     uniq_domains = @packages.pluck(:to).uniq
     @data = []
+    all_count = @packages.size
     uniq_domains.each do |domain|
       count = @packages.where(to: domain).size
-      @data << OpenStruct.new(from: from, domain: domain, count: count, color: Faker::Color.color_name)
-    end
-    respond_to do |format|
-      format.json { render :json => @data }
+      @data << OpenStruct.new(from: from, domain: domain, count: (count.to_f*100/all_count).ceil)
     end
   end
 
@@ -66,6 +66,6 @@ class PackagesController < ApplicationController
   private
 
   def from
-    params[:package][:computer_name]
+    params[:package] && params[:package][:computer_name] || params[:from_ip]
   end
 end

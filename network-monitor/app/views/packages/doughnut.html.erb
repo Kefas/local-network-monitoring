@@ -42,9 +42,9 @@
                     <% @data.each do |data| %>
                         <tr>
                           <td>
-                            <p><i class="fa fa-square #{data.color}"></i>data.domain</p>
+                            <p><i class="fa fa-square #{data.color}"></i><%= data.domain %></p>
                           </td>
-                          <td>data.percentage</td>
+                          <td><%= data.count %></td>
                         </tr>
                     <% end %>
                   </table>

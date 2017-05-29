@@ -90,6 +90,14 @@ $(function () {
             success: function(json) {
                 arr_data = JSON.parse(json);
 
+                labels = [];
+                data_s = [];
+
+                arr_data.forEach(function(entry) {
+                    labels.push(entry.table.domain);
+                    data_s.push(entry.table.count);
+                });
+
                 if( typeof (Chart) === 'undefined'){ return; }
 
                 console.log('init_chart_doughnut');
@@ -100,15 +108,9 @@ $(function () {
                         type: 'doughnut',
                         tooltipFillColor: "rgba(51, 51, 51, 0.55)",
                         data: {
-                            labels: [
-                                "Symbian",
-                                "Blackberry",
-                                "Other",
-                                "Android",
-                                "IOS"
-                            ],
+                            labels: labels,
                             datasets: [{
-                                data: [15, 20, 30, 10, 30],
+                                data: data_s,
                                 backgroundColor: [
                                     "#BDC3C7",
                                     "#9B59B6",
